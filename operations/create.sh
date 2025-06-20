@@ -4,7 +4,7 @@ mkdir -p databases
 cd databases || { echo "Failed to enter databases directory."; exit 1; }
 while true
 do
-    read -p "Enter the name of the database: " databaseName
+    read -p "Enter the name of the database: " dataBaseName
 
     if [[ ! "$dataBaseName" =~ ^[a-zA-Z_][a-zA-Z_]*$ ]]
     then

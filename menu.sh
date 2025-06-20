@@ -1,3 +1,7 @@
+#!/usr/bin/bash
+
+
+scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 tableMenu=("Create table" "List tables" "Drop table" "Insert to table" "Select from table" "Delete from table" "Update table" "Exit")
 
 while true 
@@ -7,28 +11,28 @@ do
     do
         case $option in
             "Create table")
-                source $scriptFilesLocation/table/create.sh
+                source "$scriptDir/table/create.sh"
                 ;;
             "List tables")
-                source $scriptFilesLocation/table/list.sh
+                source "$scriptDir/table/list.sh"
                 ;;
             "Drop table")
-                source $scriptFilesLocation/table/drop.sh
+                source "$scriptDir/table/drop.sh"
                 ;;
             "Insert to table")
-                source $scriptFilesLocation/table/insert_to_table.sh
+                source "$scriptDir/table/insert_to_table.sh"
                 ;;
             "Select from table")
-                source $scriptFilesLocation/table/select_from_table.sh
+                source "$scriptDir/table/select_from_table.sh"
                 ;;
             "Delete from table")
-                source $scriptFilesLocation/table/delete_from_table.sh
+                source "$scriptDir/table/delete_from_table.sh"
                 ;;
             "Update table")
-                source $scriptFilesLocation/table/update_data.sh
+                source "$scriptDir/table/update_data.sh"
                 ;;
             "Exit")
-                echo "Exiting database '$dataBaseName'..."
+                echo "Exiting..."
                 exit 0
                 ;;
             *)
@@ -37,3 +41,4 @@ do
         esac
     done
 done
+

@@ -1,20 +1,26 @@
-directory=$PWD
-count=0
+directory="$PWD/databases"
+
+if [[ ! -d "$directory" ]]
+then
+    echo "Databases directory does not exist."
+    exit 1
+fi
+
+databases=()
 
 for item in "$directory"/*
 do
-    [[ -d "$item" ]] && ((count++))
+    [[ -d "$item" ]] && databases+=("$(basename "$item")")
 done
 
-if [[ $count -eq 0 ]]
+if [[ ${#databases[@]} -eq 0 ]]
 then
     echo "No databases found."
 else
-    for database in "$directory"/*
+    echo "Found databases:"
+    for db in "${databases[@]}"
     do
-        if [[ -d $database ]]; then
-            echo "$(basename "$database")"
-        fi
+        echo "$db"
     done
 fi
 
