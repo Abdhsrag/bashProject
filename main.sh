@@ -1,5 +1,6 @@
 operations=("Create database" "Drop database" "List databases" "Connect to database" "Exit")
-select var in "${operations[@]}"; do
+select var in "${operations[@]}"
+do
     case $var in
 	"Connect to database")
 	    source $scriptLocation/operations/connect.sh
